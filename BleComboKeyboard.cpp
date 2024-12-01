@@ -167,12 +167,14 @@ void BleComboKeyboard::taskServer(void* pvParameter) {
   bleKeyboardInstance->hid = new BLEHIDDevice(pServer);
   bleKeyboardInstance->inputKeyboard = bleKeyboardInstance->hid->inputReport(KEYBOARD_ID); // <-- input REPORTID from report map
   bleKeyboardInstance->outputKeyboard = bleKeyboardInstance->hid->outputReport(KEYBOARD_ID);
-  bleKeyboardInstance->inputMediaKeys = bleKeyboardInstance->hid->inputReport(MEDIA_KEYS_ID);
   bleKeyboardInstance->connectionStatus->inputKeyboard = bleKeyboardInstance->inputKeyboard;
   bleKeyboardInstance->connectionStatus->outputKeyboard = bleKeyboardInstance->outputKeyboard;
   
   bleKeyboardInstance->inputMouse = bleKeyboardInstance->hid->inputReport(MOUSE_ID); // <-- input REPORTID from report map
   bleKeyboardInstance->connectionStatus->inputMouse = bleKeyboardInstance->inputMouse;
+
+  bleKeyboardInstance->inputMediaKeys = bleKeyboardInstance->hid->inputReport(MEDIA_KEYS_ID);
+  bleKeyboardInstance->connectionStatus->inputMediaKeys = bleKeyboardInstance->inputMediaKeys;
  
   bleKeyboardInstance->outputKeyboard->setCallbacks(new KeyboardOutputCallbacks());
 

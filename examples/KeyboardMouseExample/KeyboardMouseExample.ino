@@ -6,9 +6,14 @@
  
 #include <BleCombo.h>
 
+#define DEVICE_NAME "ESP32 Keyboard/Mouse"
+#define DEVICE_MANUFACTURER "Espressif"
+
 void setup() {
   Serial.begin(115200);
   Serial.println("Starting work!");
+  Keyboard.deviceName = DEVICE_NAME;
+  Keyboard.deviceManufacturer = DEVICE_MANUFACTURER;
   Keyboard.begin();
   Mouse.begin();
 }
