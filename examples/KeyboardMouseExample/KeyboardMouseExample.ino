@@ -14,6 +14,12 @@ void setup() {
   Serial.println("Starting work!");
   Keyboard.deviceName = DEVICE_NAME;
   Keyboard.deviceManufacturer = DEVICE_MANUFACTURER;
+
+  // bleConnectionMode allows providing different HID reports. For example, MEDIA allows for creating a media only device.
+  // For mobile (at least Android) this prevents the mobile device from showing a mouse cursor and hiding the vitual keyboard.
+  // The default is KEYBOARD_MEDIA_MOUSE_MODE
+  //Keyboard.bleConnectionMode = MEDIA_MODE;
+  
   Keyboard.begin();
   Mouse.begin();
 }

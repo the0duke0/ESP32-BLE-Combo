@@ -86,6 +86,8 @@ typedef struct
   uint8_t keys[6];
 } KeyReport;
 
+enum BLEConnectionMode {KEYBOARD_MEDIA_MOUSE_MODE, MEDIA_MODE};
+
 class BleComboKeyboard : public Print
 {
 private:
@@ -121,7 +123,8 @@ public:
   std::string deviceName;
 
   BLECharacteristic* inputMouse;
-
+  
+  BLEConnectionMode bleConnectionMode = KEYBOARD_MEDIA_MOUSE_MODE;
 };
 
 #endif // CONFIG_BT_ENABLED
